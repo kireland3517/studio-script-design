@@ -1,0 +1,54 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  excerpt: string;
+  author: string;
+}
+
+const { title, date, excerpt, author } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={excerpt} ogTitle={title} ogDescription={excerpt}>
+  <article class="max-w-2xl mx-auto px-4 sm:px-6 py-16">
+    <div class="mb-8">
+      <a href="/blog" class="text-sm text-teal-700 hover:text-teal-900 font-medium transition-colors">&larr; Back to Blog</a>
+    </div>
+
+    <header class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight mb-4">{title}</h1>
+      <div class="flex items-center gap-3 text-sm text-slate-500">
+        <span>{author}</span>
+        <span>&middot;</span>
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+      </div>
+    </header>
+
+    <div class="prose prose-slate prose-lg max-w-none
+      prose-headings:font-semibold prose-headings:text-slate-900
+      prose-a:text-teal-700 prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-slate-900
+      prose-li:text-slate-700
+      prose-p:text-slate-700 prose-p:leading-relaxed">
+      <slot />
+    </div>
+
+    <div class="mt-14 border-t border-slate-100 pt-10">
+      <div class="bg-teal-50 border border-teal-100 rounded-xl p-6">
+        <p class="font-semibold text-slate-900 mb-1">Need a complete compliance system?</p>
+        <p class="text-slate-600 text-sm mb-4">The MEDICAID-READY kit from Session Supply Co. includes documentation templates, credentialing checklists, and billing guidance built specifically for peer support organizations.</p>
+        <a href="/medicaid-ready" class="inline-block bg-teal-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-teal-800 transition-colors">
+          See the Kit &rarr;
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Katie Ireland is a freelance designer and healthcare operations consultant behind Studio Script Design and Session Supply Co."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+
+    <!-- Header -->
+    <div class="mb-14">
+      <p class="text-teal-700 text-sm font-semibold uppercase tracking-widest mb-3">About</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-5">Katie Ireland</h1>
+      <p class="text-lg text-slate-500">Freelance designer & healthcare operations consultant.<br />
+        <span class="text-slate-400 text-base">Studio Script Design &mdash; Session Supply Co.</span>
+      </p>
+    </div>
+
+    <!-- Bio -->
+    <div class="prose prose-slate prose-lg max-w-none mb-14
+      prose-p:text-slate-600 prose-p:leading-relaxed
+      prose-headings:text-slate-900 prose-headings:font-semibold">
+
+      <p>
+        I've spent years working at the intersection of healthcare operations and program compliance — the part of the work that isn't clinical, but makes clinical work possible. Billing systems that actually function. Intake processes that don't lose referrals. Documentation that survives an audit.
+      </p>
+      <p>
+        Session Supply Co. is my product line for peer support organizations and behavioral health programs that are doing meaningful work but struggling with the operational infrastructure behind it. The tools here are built from direct experience — not from reading policy documents, but from sitting inside programs that needed them.
+      </p>
+      <p>
+        Studio Script Design is my broader consulting and design practice. I work with healthcare organizations on operations strategy, compliance frameworks, and the kind of behind-the-scenes systems that let frontline staff focus on care.
+      </p>
+    </div>
+
+    <!-- Credibility Points -->
+    <div class="mb-14">
+      <h2 class="text-xl font-semibold text-slate-900 mb-6">Background & focus areas</h2>
+      <ul class="space-y-4">
+        {[
+          {
+            label: 'Medicaid billing & compliance',
+            detail: 'Peer support services, H0038/H2015 billing, documentation standards, and audit preparedness for behavioral health organizations.',
+          },
+          {
+            label: 'Admissions & referral operations',
+            detail: 'Building intake infrastructure for residential, outpatient, and community-based programs — from referral tracking to enrollment workflows.',
+          },
+          {
+            label: '42 CFR Part 2 & HIPAA',
+            detail: 'Consent management, record segregation, and operational compliance for SUD treatment programs and dual-diagnosis providers.',
+          },
+          {
+            label: 'Program operations design',
+            detail: 'Translating regulatory requirements into practical systems that frontline staff can actually use — without a compliance attorney in the room.',
+          },
+          {
+            label: 'Freelance design & consulting',
+            detail: 'Working directly with program directors, operations managers, and founders on systems that need to work today, not after a six-month implementation.',
+          },
+        ].map((item) => (
+          <li class="flex items-start gap-4 py-4 border-b border-slate-100 last:border-0">
+            <svg class="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <div>
+              <p class="font-medium text-slate-900">{item.label}</p>
+              <p class="text-slate-500 text-sm mt-0.5">{item.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- CTA / Contact -->
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8">
+      <h2 class="font-semibold text-slate-900 text-lg mb-2">Work with me</h2>
+      <p class="text-slate-600 text-sm leading-relaxed mb-5">
+        If your organization needs hands-on help with Medicaid billing compliance, admissions process design, or operations consulting — I take on a limited number of direct clients. Reach out and let's talk about what you're working on.
+      </p>
+      <a
+        href="mailto:hello@studioscriptdesign.com"
+        class="inline-block bg-teal-700 hover:bg-teal-800 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm"
+      >
+        Get in touch
+      </a>
+    </div>
+
+  </div>
+</BaseLayout>
